@@ -24,7 +24,7 @@ openssl x509 -req -CA ca-cert -CAkey ca-key -in ca-request-zookeeper -out ca-sig
 **6. Import the CA into Keystore** <br />
 keytool -keystore kafka.zookeeper.keystore.jks -alias ca-cert -import -file ca-cert
 
-**7. Import the signed certificate from step 5 into Keystore**
+**7. Import the signed certificate from step 5 into Keystore** <br />
 keytool -keystore kafka.zookeeper.keystore.jks -alias zookeeper -import -file ca-signed-zookeeper
 
 
