@@ -36,12 +36,3 @@ kafka-topics.sh --zookeeper localhost:2181 --list
 kafka-topics.sh --zookeeper localhost:2181 --create --topic mytopic --partitions 2 --replication-factor 3
 `
 
-### To Monitor the consumer groups
-`
-kafka-run-class.sh kafka.admin.ConsumerGroupCommand --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --group first-consumer --describe
-`
-
-### To check latest Offset on the partition level for a topic
-`
-kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092,localhost:9093 --topic mytopic
-`
