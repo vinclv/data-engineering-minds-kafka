@@ -44,3 +44,7 @@ kafka-topics.sh --zookeeper localhost:2181 --list
 kafka-topics.sh --zookeeper localhost:2181 --create --topic mytopic --partitions 2 --replication-factor 3
 `
 
+## To describe a topic
+`
+kafka-topics.sh --zookeeper localhost:2181 --describe --topic ssl-topic 
+`
