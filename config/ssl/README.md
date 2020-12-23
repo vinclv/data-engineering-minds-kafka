@@ -1,5 +1,5 @@
 # SSL
-This repository contains the configuration files for zookeeper, Kafka brokers, producers, and consumers for launching a basic 3-node kafka cluster with SSL security.
+This repository contains the configuration files for zookeeper, zookeeper clients, Kafka brokers, producers, and consumers for launching a basic 3-node kafka cluster with SSL security. Please check the step-by-step [video tutorial](https://www.youtube.com/watch?v=hR_OuiqLgOo) on my Youtube channel.
 
 
 ### Steps to generate CA, Truststore and Keystore 
