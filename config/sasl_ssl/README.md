@@ -89,5 +89,9 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localh
 #### To reset offsets on partition level 
 `
 kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config consumer-group-client.properties --group sasl-consumer --reset-offsets --topic  ssl-topic:0 --to-latest --execute
+`
+
+`
 kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config consumer-group-client.properties --group sasl-consumer --reset-offsets --topic  ssl-topic:1 --to-latest --execute
+`
 `
