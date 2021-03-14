@@ -45,43 +45,43 @@ kafka-topics.sh --zookeeper localhost:2181 --describe --topic ssl-topic
 
 ### To list all the consumer groups
 `
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config client.properties --list
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --list
 `
 
 ### To describe the consumer group
 `
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config client.properties --describe --group sasl-consumer
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer
 `
 
 ### To describe all the members of the consumer group
 ´
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config client.properties --describe --group sasl-consumer --members
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config client.properties --describe --group sasl-consumer --members --verbose
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer --members
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer --members --verbose
 `
 
 ### To describe the state of the consumer group
 `
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config client.properties --describe --group sasl-consumer --state
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer --state
 `
 
 ### To reset the offsets of the consumer group on a topic level
 
 #### To latest offset
 `
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config client.properties --group sasl-consumer --reset-offsets --topic  ssl-topic --to-latest --execute
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config consumer-group-client.properties --group sasl-consumer --reset-offsets --topic  ssl-topic --to-latest --execute
 `
 
 #### To least offset 
 `
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config client.properties --group sasl-consumer --reset-offsets --topic  ssl-topic --to-earliest --execute
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config consumer-group-client.properties --group sasl-consumer --reset-offsets --topic  ssl-topic --to-earliest --execute
 `
 
 #### To shift by number of offsets
 `
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config client.properties --group sasl-consumer --dry-run --reset-offsets --topic  ssl-topic --shift-by 1 --execute
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config consumer-group-client.properties --group sasl-consumer --dry-run --reset-offsets --topic  ssl-topic --shift-by 1 --execute
 `
 
 #### To perform dry run without executing
 `
-kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config client.properties --group sasl-consumer --dry-run --reset-offsets --topic  ssl-topic --to-latest
+kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094  --command-config consumer-group-client.properties --group sasl-consumer --dry-run --reset-offsets --topic  ssl-topic --to-latest
 `
