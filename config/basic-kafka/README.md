@@ -39,7 +39,7 @@ kafka-topics.sh --zookeeper localhost:2181 --delete --topic topic-name
 <br /><br /> If the topic has data, then it could take some time and this topic would still be displayed when the command *kafka-topics.sh --list* is executed.
 
 ### Method 2
-* Stop all the brokers
+* Stop all the brokers.
 * Delete the topic directory inside the path mentioned in *log.dirs* of server.properties.
 * Execute *zookeeper-shell.sh* and connect to the zookeeper instance.
 * Delete the topic by executing *rmr /brokers/topics/topic-name*. FYI - *rmr* is used to perform recursive delete operations on a node.
