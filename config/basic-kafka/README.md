@@ -36,7 +36,7 @@ kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092,local
 `
 kafka-topics.sh --zookeeper localhost:2181 --delete --topic topic-name
 `
-<br /> If the topic has data, then it could take some time and this topic would still be displayed when the command *kafka-topics.sh --list* is executed.
+<br /><br /> If the topic has data, then it could take some time and this topic would still be displayed when the command *kafka-topics.sh --list* is executed.
 
 ### Method 2
 * Stop all the brokers
