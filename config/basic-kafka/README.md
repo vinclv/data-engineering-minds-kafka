@@ -30,3 +30,20 @@ kafka-run-class.sh kafka.admin.ConsumerGroupCommand --bootstrap-server localhost
 `
 kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list localhost:9092,localhost:9093 --topic mytopic
 `
+
+## To delete a topic
+### Method 1
+`
+kafka-topics.sh --zookeeper localhost:2181 --delete --topic topic-name
+`
+If the topic has data, then it could take some time and this topic would still be displayed when the command *kafka-topics.sh --list* is executed.
+
+### Method 2
+* Stop all the brokers
+* Delete the topic directory inside the path mentioned in *log.dirs* of server.properties.
+* Execute *zookeeper-shell.sh* and connect to the zookeeper instance.
+* Delete the topic directory by executing *rmr /brokers/topics/topic-name*. FYI - *rmr* is used to perform recursive delete operations.
+* Restart all the brokers
+* Now, the deleted topic should not be displayed when the command *kafka-topics.sh --list* is executed. 
+
+
