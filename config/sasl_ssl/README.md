@@ -4,8 +4,19 @@ This repository contains the configuration files for zookeeper, Kafka brokers, p
 ## Note
 Please remember just for showing a demo, I have shown the password directly inside the property files. Please never do that on a production environment; oor make sure that the property files are placed inside admin-only directorires with highly restricted access.
 
-### Example command to create a SASL/SCRAM username/password
+
+### kafka-configs.sh commands to create, delete and list SASL/SCRAM credentials
+#### To create a SASL/SCRAM user
 `kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name my-user --alter --add-config 'SCRAM-SHA-512=[password=DEM123]'`
+
+#### To describe a SASL/SCRAM user
+`kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name my-user --describe`
+
+#### To describe/list all available SASL/SCRAM users
+`kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --describe`
+
+#### To delete a SASL/SCRAM user
+`kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name my-user --alter --delete-config 'SCRAM-SHA-512'`
 
 ### Example ACL commands 
 #### To grant PRODUCER access for the user to the topic *mytopic*
