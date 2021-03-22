@@ -31,26 +31,6 @@ Please remember just for showing a demo, I have shown the password directly insi
 #### To list all the ACLs associated with the user
 `kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --list --principal User:my-user`
 
-### To check all the brokers connected to the Zookeeper running in 2-way SSL mode
-`
-zookeeper-shell.sh localhost:2182 -zk-tls-config-file zookeeper-client.properties
-ls /brokers/ids
-`
-
-### To check all the topics available on Kafka
-`
-kafka-topics.sh --zookeeper localhost:2181 --list
-`
-
-### To create a topic inside Kafka
-`
-kafka-topics.sh --zookeeper localhost:2181 --create --topic mytopic --partitions 2 --replication-factor 3
-`
-
-### To describe a topic
-`
-kafka-topics.sh --zookeeper localhost:2181 --describe --topic ssl-topic 
-`
 
 ## Commands to produce and consume to/from a topic
 
