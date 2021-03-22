@@ -52,6 +52,33 @@ kafka-topics.sh --zookeeper localhost:2181 --create --topic mytopic --partitions
 kafka-topics.sh --zookeeper localhost:2181 --describe --topic ssl-topic 
 `
 
+## Commands to produce and consume to/from a topic
+
+### To produce message value to a topic
+`
+kafka-console-producer.sh --broker-list localhost:9092,localhost:9093 --topic ssl-topic --producer.config producer.properties
+`
+
+### To consume a topic from beginning
+`
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --from-beginning
+`
+
+#### To consume N (for example N=10) messages from a topic
+`
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --max-messages 10
+`
+
+#### To consume last N messages - For example, from a specific offset till latest (on partition level). Remember that you need to comment the group.id in consumer.properties
+`
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --partition 1 --offset 1
+`
+
+#### To print additional information along with message such as headers, keys, timestamp, etc.. Remember this works only from Kafka 2.7
+`
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --max-messages 10 --property print.headers=true
+`
+
 ## Commands for kafka-consumer-groups.sh
 
 ### To list all the consumer groups
@@ -65,7 +92,7 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localh
 `
 
 ### To describe all the members of the consumer group
-´
+`
 kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer --members
 kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer --members --verbose
 `

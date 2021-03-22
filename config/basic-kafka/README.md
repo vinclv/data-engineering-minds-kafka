@@ -47,3 +47,21 @@ kafka-topics.sh --zookeeper localhost:2181 --delete --topic topic-name
 * Now, the deleted topic should not be displayed when the command *kafka-topics.sh --list* is executed. 
 
 
+## Commands to produce and consume to/from a topic
+
+### To produce message value to a topic
+`
+kafka-console-producer.sh --broker-list localhost:9092,localhost:9093 --topic first-topic
+`
+
+### To consume a topic from beginning
+`
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic first-topic --from-beginning --group first-consumer
+`
+
+### To consume N (for example N=10) messages from a topic
+`
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic first-topic --max-messages 10
+`
+
+
