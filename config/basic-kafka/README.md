@@ -61,7 +61,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --top
 
 ### To consume N (for example N=10) messages from a topic
 `
-kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic first-topic --max-messages 10
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic first-topic --max-messages 10 --group first-consumer
 `
 
 
