@@ -5,30 +5,30 @@ This repository contains the configuration files for zookeeper, Kafka brokers, p
 Please remember just for showing a demo, I have shown the password directly inside the property files. Please never do that on a production environment; oor make sure that the property files are placed inside admin-only directorires with highly restricted access.
 
 
-### kafka-configs.sh commands to create, delete and list SASL/SCRAM credentials
-#### To create a SASL/SCRAM user
+## kafka-configs.sh commands to create, delete and list SASL/SCRAM credentials
+### To create a SASL/SCRAM user
 `kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name my-user --alter --add-config 'SCRAM-SHA-512=[password=DEM123]'`
 
-#### To describe a SASL/SCRAM user
+### To describe a SASL/SCRAM user
 `kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name my-user --describe`
 
-#### To describe/list all available SASL/SCRAM users
+### To describe/list all available SASL/SCRAM users
 `kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --describe`
 
-#### To delete a SASL/SCRAM user
+### To delete a SASL/SCRAM user
 `kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name my-user --alter --delete-config 'SCRAM-SHA-512'`
 
-### Example ACL commands 
-#### To grant PRODUCER access for the user to the topic *mytopic*
+## Example ACL commands 
+### To grant PRODUCER access for the user to the topic *mytopic*
 `kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:my-user --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --topic mytopic`
 
-#### To grant CONSUMER access for the user to the topic *mytopic* and with consumer group *mycgroup*
+### To grant CONSUMER access for the user to the topic *mytopic* and with consumer group *mycgroup*
 
 `kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:my-user --operation READ --operation DESCRIBE --topic mytopic`
 
 `kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:my-user --operation READ --group mycgroup`
 
-#### To list all the ACLs associated with the user
+### To list all the ACLs associated with the user
 `kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --list --principal User:my-user`
 
 
@@ -44,17 +44,17 @@ kafka-console-producer.sh --broker-list localhost:9092,localhost:9093 --topic ss
 kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --from-beginning
 `
 
-#### To consume N (for example N=10) messages from a topic
+### To consume N (for example N=10) messages from a topic
 `
 kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --max-messages 10
 `
 
-#### To consume last N messages - For example, from a specific offset till latest (on partition level). Remember that you need to comment the group.id in consumer.properties
+### To consume last N messages - For example, from a specific offset till latest (on partition level). Remember that you need to comment the group.id in consumer.properties
 `
 kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --partition 1 --offset 1
 `
 
-#### To print additional information along with message such as headers, keys, timestamp, etc.. Remember this works only from Kafka 2.7
+### To print additional information along with message such as headers, keys, timestamp, etc.. Remember this works only from Kafka 2.7
 `
 kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --max-messages 10 --property print.headers=true
 `
