@@ -43,6 +43,10 @@ kafka-topics.sh --zookeeper localhost:2181 --list
 `
 kafka-topics.sh --zookeeper localhost:2181 --create --topic mytopic --partitions 2 --replication-factor 3
 `
+#### To create a topic with additional configurations
+`
+kafka-topics.sh --zookeeper localhost:2181 --create --topic my-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
+`
 
 ### To describe a topic
 `
