@@ -19,9 +19,11 @@ kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 
 ### Method 2:
 1. Follow the first two steps as in Method 1.
 2. For Production environments, it is not a recommended practice to use the same credentials used for brokers for daily kafka administration activities. Hence, create a new SASL credential using the below command:
+
 `
 kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=Dem123]'
 `
+
 3. Now, for granting the super-user access to the above credential, execute the following ACLS:
 **FULL ACCESS for Topics**
 `
