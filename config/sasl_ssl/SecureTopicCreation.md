@@ -25,6 +25,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
     `
 
 3. Now, for granting the super-user access to the above credential, execute the following ACLS:<br/>
+
 **FULL ACCESS for Topics**<br/>
     
     `
