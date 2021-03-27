@@ -16,6 +16,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
 ` 
 kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
 `
+<br />
 ### Method 2:
 1. Follow the first two steps as in Method 1.
 2. For Production environments, it is not a recommended practice to use the same credentials used for brokers for daily kafka administration activities. Hence, create a new SASL credential using the below command:
