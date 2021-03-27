@@ -4,7 +4,7 @@ Moving forward, please don't create topics via *kafka-topics.sh* connecting to z
 1. There is no support for *kafka-topics.sh* to connect to the zookeeper in secured manner. Hence, we still need to connect via the unsecured port 2181.
 2. Zookeeper is going to be removed from the Apache Kafka ecosystem and all the external metadata management will be taken care by the brokers themselves. Hence, it is high time we need to slowly replace zookeeper-relevant parameters by broker-related parameters (such as bootstrap-server) whenever Kafka releases the new support. You can find more details [here](https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum).
 
-Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connecting directly to the brokers.
+Therefore, from now on, we can create Kafka topics (and perform other topic related activities) via *kafka-topics.sh* connecting directly to the brokers.
 
 ## Steps:
 ### Method 1 (Not a recommended practice in Production):
