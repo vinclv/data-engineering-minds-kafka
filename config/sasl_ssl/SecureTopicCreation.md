@@ -34,14 +34,17 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation DESCRIBE --operation DELETE --group '*'
     `
+    
 **FULL ACCESS for delegation-tokens**<br/>
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --delegation-token '*'
     `
+    
 **FULL ACCESS for transactional clients**<br/>
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --operation WRITE  --transactional-id '*'
     `
+    
 *FULL ACCESS to the cluster*<br/>
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation ALTER --operation ALTERCONFIGS --operation CLUSTERACTION --operation CREATE --operation DESCRIBE --operation DESCRIBECONFIGS --operation IDEMPOTENTWRITE --cluster SdiG0K04TmqP-i-m7tWdsw
