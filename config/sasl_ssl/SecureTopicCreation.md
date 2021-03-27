@@ -25,6 +25,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
     `
 
 3. Now, for granting the super-user access to the above credential, execute the following ACLS:<br/>
+
 **FULL ACCESS for Topics**<br/>   
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
