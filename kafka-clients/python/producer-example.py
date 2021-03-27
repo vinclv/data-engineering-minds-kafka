@@ -1,6 +1,6 @@
 from confluent_kafka import Producer
 from faker import Faker # to generate random names
-from random import randint # to generate random integers
+from random import randint # to generate random IDs
 import time
 
 def delivery_report(err, msg):
