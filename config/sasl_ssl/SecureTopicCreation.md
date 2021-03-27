@@ -26,26 +26,34 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
 
 3. Now, for granting the super-user access to the above credential, execute the following ACLS:<br/>
 **FULL ACCESS for Topics**<br/>
+    
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
     `
-**FULL ACCESS for Groups**
-`
-kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation DESCRIBE --operation DELETE --group '*'
-`
-**FULL ACCESS for delegation-tokens**
-`
-kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --delegation-token '*'
-`
-**FULL ACCESS for transactional clients**
-`
-kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --operation WRITE  --transactional-id '*'
-`
-*FULL ACCESS to the cluster*
-`
-kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation ALTER --operation ALTERCONFIGS --operation CLUSTERACTION --operation CREATE --operation DESCRIBE --operation DESCRIBECONFIGS --operation IDEMPOTENTWRITE --cluster SdiG0K04TmqP-i-m7tWdsw
-`
+
+**FULL ACCESS for Groups**<br/>
+
+    `
+    kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation DESCRIBE --operation DELETE --group '*'
+    `
+**FULL ACCESS for delegation-tokens**<br/>
+
+    `
+    kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --delegation-token '*'
+    `
+**FULL ACCESS for transactional clients**<br/>
+
+    `
+    kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --operation WRITE  --transactional-id '*'
+    `
+*FULL ACCESS to the cluster*<br/>
+
+    `
+    kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation ALTER --operation ALTERCONFIGS --operation CLUSTERACTION --operation CREATE --operation DESCRIBE --operation DESCRIBECONFIGS --operation IDEMPOTENTWRITE --cluster SdiG0K04TmqP-i-m7tWdsw
+    `
+
 **Note** If you want to know how to find the ID of your cluster, connect to zookeeper shell and execute *get /cluster/id*.
+
 4. Finally, create the topic using the below command:
 ` 
 kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
