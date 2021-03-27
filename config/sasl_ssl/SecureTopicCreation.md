@@ -12,7 +12,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
 2. You can find the steps to create the truststore file [here](https://github.com/vinclv/data-engineering-minds-kafka/tree/main/config/ssl).
 3. For SASL username/password, you can use the credentials you supplied for brokers (server.properties) since it has super-user access.
 4. Finally, create the topic using the below command:
-<br />
+
 ` 
 kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
 `
