@@ -56,7 +56,7 @@ kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --top
 
 ### To print additional information along with message such as headers, keys, timestamp, etc.. Remember this works only from Kafka 2.7
 `
-kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --max-messages 10 --property print.headers=true
+kafka-console-consumer.sh --bootstrap-server localhost:9092,localhost:9093 --topic ssl-topic --consumer.config consumer.properties --max-messages 10 --property print.headers=true --property print.timestamp=true
 `
 
 ## Commands for kafka-consumer-groups.sh
