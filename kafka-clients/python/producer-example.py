@@ -5,11 +5,6 @@ import time
 
 def delivery_report(err, msg):
     if err:
-        """
-         - In case of KafkaError, check whether the error is retriable (via setting retries in producer config) or not
-         - If not retriable, then the producer may take any action as part of this application
-         - For example, such failed records which are not retriable can be written to backup files and retried manually later
-        """
         if str(type(err).__name__) == "KafkaError":
             print(f"Message failed with error : {str(err)}")
             print(f"Message Retry? :: {err.retriable()}")
