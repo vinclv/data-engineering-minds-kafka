@@ -22,19 +22,19 @@ kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 
 kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=Dem123]'
 `
 3. Now, for granting the super-user access to the above credential, execute the following ACLS:
-*FULL ACCESS for Topics*
+**FULL ACCESS for Topics**
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
 `
-*FULL ACCESS for Groups*
+**FULL ACCESS for Groups**
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation DESCRIBE --operation DELETE --group '*'
 `
-*FULL ACCESS for delegation-tokens*
+**FULL ACCESS for delegation-tokens**
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --delegation-token '*'
 `
-*FULL ACCESS for transactional clients*
+**FULL ACCESS for transactional clients**
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --operation WRITE  --transactional-id '*'
 `
