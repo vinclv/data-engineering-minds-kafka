@@ -30,7 +30,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
     `
-<br/>
+
 **FULL ACCESS for Groups**
 
     `
