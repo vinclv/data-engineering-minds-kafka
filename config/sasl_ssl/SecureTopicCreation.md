@@ -14,7 +14,7 @@ Therefore, from now on, we can create Kafka topics (and perform other topic rela
 4. Finally, create the topic using the below command:
 
     ` 
-    kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
+    kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic my-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
     `
 ### Method 2:
 1. Follow the first two steps as in Method 1.
@@ -56,7 +56,7 @@ Therefore, from now on, we can create Kafka topics (and perform other topic rela
 4. Finally, create the topic using the below command:
 
 ` 
-kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
+kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic my-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
 `
 
 
