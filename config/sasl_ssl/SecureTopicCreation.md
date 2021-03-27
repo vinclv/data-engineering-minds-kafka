@@ -54,6 +54,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
     **Note** If you want to know how to find the ID of your cluster, connect to zookeeper shell and execute *get /cluster/id*.
 
 4. Finally, create the topic using the below command:
+
 ` 
 kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
 `
