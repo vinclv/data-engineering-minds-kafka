@@ -51,7 +51,7 @@ Therefore, from now on, we can create Kafka topics (and perform other topic rela
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation ALTER --operation ALTERCONFIGS --operation CLUSTERACTION --operation CREATE --operation DESCRIBE --operation DESCRIBECONFIGS --operation IDEMPOTENTWRITE --cluster SdiG0K04TmqP-i-m7tWdsw
     `
 
-    **Note** If you want to know how to find the ID of your cluster, connect to zookeeper shell and execute *get /cluster/id*.
+    **Note** - If you want to know how to find the ID of your cluster, connect to zookeeper shell and execute *get /cluster/id*.
 
 4. Finally, create the topic using the below command:
 
