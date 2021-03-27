@@ -24,7 +24,7 @@ Therefore, from now on, we can create Kafka topics (and perform other topic rela
     kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=Dem123]'
     `
 
-3. Now, for granting the super-user access to the above credential, execute the following ACLS:
+3. Now, for granting the super-user access to the above credential, execute the following ACLs:
     <br/>
     **FULL ACCESS for Topics**<br/>
     `
