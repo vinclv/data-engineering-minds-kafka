@@ -23,15 +23,15 @@ def run_producer():
     p = Producer({'bootstrap.servers':'localhost:9092,localhost:9093,localhost:9094',
                   'security.protocol':'sasl_ssl','sasl.mechanism':'SCRAM-SHA-512',
                   'ssl.ca.location':'/Users/vinod/mymac/kafka/ssl/ca-cert',
-                  'sasl.username':'demo-producer','sasl.password':'Vinod123',
-                  'acks':'-1','partitioner':'consistent_random','batch.num.messages':'2',
-                  'linger.ms':'5000',
-                  'queue.buffering.max.messages':'10'})
+                  'sasl.username':'demo-user','sasl.password':'Vinod123',
+                  'acks':'-1','partitioner':'consistent_random','batch.num.messages':'1000',
+                  'linger.ms':'100',
+                  'queue.buffering.max.messages':'10000'})
 
     #topic_info = p.list_topics()
     #print(topic_info.brokers)
 
-    for i in range(0,2):
+    for i in range(0,3):
         msg_value = {'id': randint(0, 100),'name': Faker('en_US').name()}
         msg_header = {"source" : b'DEM'}
         while True:
