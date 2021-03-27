@@ -12,6 +12,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
 2. You can find the steps to create the truststore file [here](https://github.com/vinclv/data-engineering-minds-kafka/tree/main/config/ssl).
 3. For SASL username/password, you can use the credentials you supplied for brokers (server.properties) since it has super-user access.
 4. Finally, create the topic using the below command:
+<br />
 ` 
 kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
 `
@@ -22,27 +23,32 @@ kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 
 kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=Dem123]'
 `
 3. Now, for granting the super-user access to the above credential, execute the following ACLS:
-#### FULL ACCESS for Topics
+*FULL ACCESS for Topics*
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
 `
-#### FULL ACCESS for Groups
+<br />
+*FULL ACCESS for Groups*
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation DESCRIBE --operation DELETE --group '*'
 `
-#### FULL ACCESS for delegation-tokens
+<br />
+*FULL ACCESS for delegation-tokens*
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --delegation-token '*'
 `
-#### FULL ACCESS for transactional clients
+<br />
+*FULL ACCESS for transactional clients*
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --operation WRITE  --transactional-id '*'
 `
-#### FULL ACCESS to the cluster
+<br />
+*FULL ACCESS to the cluster*
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation ALTER --operation ALTERCONFIGS --operation CLUSTERACTION --operation CREATE --operation DESCRIBE --operation DESCRIBECONFIGS --operation IDEMPOTENTWRITE --cluster SdiG0K04TmqP-i-m7tWdsw
 `
-**Note** If you want to know how to find the ID of your cluster, connect to zookeeper shell and execute *get /cluster/id*.
+<br />
+**Note** If you want to know how to find the ID of your cluster, connect to zookeeper shell and execute *get /cluster/id*.<br />
 4. Finally, create the topic using the below command:
 ` 
 kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic second-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
