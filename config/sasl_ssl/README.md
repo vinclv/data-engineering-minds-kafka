@@ -2,8 +2,8 @@
 This repository contains the configuration files for zookeeper, Kafka brokers, producers, and consumers for launching a basic 3-node kafka cluster with SASL_SSL security. Please check the step-by-step [video tutorial](https://www.youtube.com/watch?v=U0XennY3_Ac) on my Youtube channel.
 
 ## Note
-Please remember just for showing a demo, I have shown the password directly inside the property files. Please never do that on a production environment; oor make sure that the property files are placed inside admin-only directorires with highly restricted access.
-
+1. Please remember just for showing a demo, I have shown the password directly inside the property files. Please never do that on a production environment; oor make sure that the property files are placed inside admin-only directories with highly restricted access.
+2. For creating kafka topics in secured way (no more using *--zookeeper* and port 2181), please follow the steps mentioned [here](https://github.com/vinclv/data-engineering-minds-kafka/blob/main/config/sasl_ssl/SecureTopicCreation.md).
 
 ## kafka-configs.sh commands to create, delete and list SASL/SCRAM credentials
 ### To create a SASL/SCRAM user
