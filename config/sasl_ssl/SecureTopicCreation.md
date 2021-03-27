@@ -20,11 +20,11 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
 1. Follow the first two steps as in Method 1.
 2. For Production environments, it is not a recommended practice to use the same credentials used for brokers for daily kafka administration activities. Hence, create a new SASL credential using the below command:
 
-`
+    `
     kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=Dem123]'
-`
+    `
 
-3. Now, for granting the super-user access to the above credential, execute the following ACLS:
+3. Now, for granting the super-user access to the above credential, execute the following ACLS:<br/>
 **FULL ACCESS for Topics**
 `
 kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
