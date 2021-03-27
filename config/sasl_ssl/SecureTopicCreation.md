@@ -24,7 +24,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
     kafka-configs.sh --zookeeper localhost:2182 --zk-tls-config-file zookeeper-client.properties --entity-type users --entity-name kafka-admin --alter --add-config 'SCRAM-SHA-512=[password=Dem123]'
     `
 
-3. Now, for granting the super-user access to the above credential, execute the following ACLS:
+3. Now, for granting the super-user access to the above credential, execute the following ACLS:<br/>
 **FULL ACCESS for Topics**<br/>   
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation READ --operation WRITE --operation DESCRIBE --operation DESCRIBECONFIGS --operation ALTER --operation ALTERCONFIGS --operation CREATE --operation DELETE --topic '*'
@@ -45,7 +45,7 @@ Therefore, from now on, we can create Kafka topics via *kafka-topics.sh* connect
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation DESCRIBE --operation WRITE  --transactional-id '*'
     `
     
-*FULL ACCESS to the cluster*<br/>
+**FULL ACCESS to the cluster**<br/>
     `
     kafka-acls.sh --authorizer-properties zookeeper.connect=localhost:2182 --zk-tls-config-file zookeeper-client.properties --add --allow-principal User:kafka-admin --operation ALTER --operation ALTERCONFIGS --operation CLUSTERACTION --operation CREATE --operation DESCRIBE --operation DESCRIBECONFIGS --operation IDEMPOTENTWRITE --cluster SdiG0K04TmqP-i-m7tWdsw
     `
