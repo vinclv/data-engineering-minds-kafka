@@ -1,27 +1,27 @@
 This repository consists of the Python Kafka clients implemented using Confluent Kafka API. Please check the step-by-step video tutorial on my [Youtube](https://www.youtube.com/watch?v=vOWePzuy-O8) channel. All these clients connect to the Kafka brokers via SASL_SSL security mode.
 
 ### Steps to prepare the setup before executing the script
-1. Install librdkafka
+1. Install librdkafka<br/>
 `
 brew install librdkafka
 `
 
-2. Install virtual environment
+2. Install virtual environment<br/>
 `
 pip install virtualenv virtualenvwrapper
 `
 
-3. Create the virtual environment
+3. Create the virtual environment<br/>
 `
 python -m venv producer-tutorial
 `
 
-4. Activate the virtual environment
+4. Activate the virtual environment<br/>
 `
 source venv/bin/activate
 `
 
-5. Install the python libraries inside the requirements file (for example - producer-requirements.txt)
+5. Install the python libraries inside the requirements file (for example - producer-requirements.txt)<br/>
 `
 pip install -r producer-requirements.txt
 `
