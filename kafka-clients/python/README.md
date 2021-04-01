@@ -26,6 +26,8 @@ source venv/bin/activate
 pip install -r producer-requirements.txt
 `
 
+**Note** - I would recommend to use Python 3.6 and above.
+
 
 ### Useful links
 1. [Confluent Kafka Python API documentation](https://docs.confluent.io/platform/current/clients/confluent-kafka-python/html/index.html#)
