@@ -18,7 +18,7 @@ python -m venv producer-tutorial
 
 4. Activate the virtual environment<br/>
 `
-source venv/bin/activate
+source producer-tutorial/bin/activate
 `
 
 5. Install the python libraries inside the requirements file (for example - producer-requirements.txt)<br/>
