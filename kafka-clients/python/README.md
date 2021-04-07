@@ -26,7 +26,7 @@ source producer-tutorial/bin/activate
 pip install -r producer-requirements.txt
 `
 
-**Note** - I would recommend to use Python 3.6 and above.
+**Note** - I would recommend to use Python 3.9.
 
 
 ### Useful links
