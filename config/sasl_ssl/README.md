@@ -75,6 +75,7 @@ kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localh
 `
 kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer --members
 `
+
 `
 kafka-consumer-groups.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config consumer-group-client.properties --describe --group sasl-consumer --members --verbose
 `
