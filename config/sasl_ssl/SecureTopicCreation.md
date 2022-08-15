@@ -67,9 +67,9 @@ Therefore, from now on, we can create Kafka topics (and perform other topic rela
 
 6. To describe a specific topic, execute the below command:
 
-` 
-kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --describe --topic my-topic
-`
+    ` 
+    kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --describe --topic my-topic
+    `
 
 
 
