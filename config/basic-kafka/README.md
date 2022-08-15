@@ -11,20 +11,38 @@ ls /brokers/ids
 `
 kafka-topics.sh --zookeeper localhost:2181 --list
 `
+For latest versions of Apache Kafka,
+`
+kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --list
+`
 
 ## To create a topic inside Kafka
 `
 kafka-topics.sh --zookeeper localhost:2181 --create --topic mytopic --partitions 2 --replication-factor 3
 `
+
+For latest versions of Apache Kafka,
+`
+kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --create --topic mytopic --partitions 2 --replication-factor 3
+`
 ### To create a topic with additional configurations
 `
 kafka-topics.sh --zookeeper localhost:2181 --create --topic my-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
 `
+
+For latest versions of Apache Kafka,
+`
+kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --create --topic my-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
+`
 ## To describe a topic
 `
-kafka-topics.sh --zookeeper localhost:2181 --describe --topic ssl-topic 
+kafka-topics.sh --zookeeper localhost:2181 --describe --topic my-topic
 `
 
+For latest versions of Apache Kafka,
+`
+kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --describe --topic my-topic
+`
 ## To Monitor the consumer groups
 `
 kafka-run-class.sh kafka.admin.ConsumerGroupCommand --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --group first-consumer --describe
