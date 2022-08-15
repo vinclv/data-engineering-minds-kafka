@@ -59,6 +59,18 @@ Therefore, from now on, we can create Kafka topics (and perform other topic rela
 kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --create --topic my-topic --partitions 2 --replication-factor 3 --config min.insync.replicas=2
 `
 
+5. For listing the available topics inside the Kafka cluster, execute the below command:
+
+` 
+kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --list
+`
+
+6. To describe a specific topic, execute the below command:
+
+` 
+kafka-topics.sh --bootstrap-server localhost:9092,localhost:9093,localhost:9094 --command-config kafka-admin.properties --describe --topic my-topic
+`
+
 
 
 
