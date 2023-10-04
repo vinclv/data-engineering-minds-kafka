@@ -7,19 +7,19 @@ This repository contains all the necessary configuration files for launching a K
 
 ### Steps to launch a Kafka cluster in Kraft Mode
 
-* Generate a cluster ID
+* **Generate a cluster ID**
 ```
 KAFKA_CLUSTER_ID="$(kafka-storage.sh random-uuid)"
 ```
-* Format the data and metdata directories for each node
+* **Format the data and metdata directories for each node**
 ```
 kafka-storage --cluster-id $KAFKA_CLUSTER_ID --config /PATH-TO-YOUR-KAFKA-DIR/config/kraft/server-0.properties
 ```
-* Set the path for logging for each node
+* **Set the path for logging for each node**
 ```
 export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:/PATH-TO-YOUR-KAFKA-DIR/config/node-0-log4j.properties"
 ```
-* Start the server application for each node
+* **Start the server application for each node**
 ```
 kafka-server-start -daemon /PATH-TO-YOUR-KAFKA-DIR/config/kraft/server-0.properties
 ```
