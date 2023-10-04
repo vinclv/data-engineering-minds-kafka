@@ -66,7 +66,7 @@ This repository contains all the necessary configuration files for launching a K
     cat /image/topics/byName/my-topic/1
 ```
 
-### Topics, Produce and Consume messages(including other useful commands)
+### Topics, Produce and Consume messages (including other useful commands)
 
 * Create a topic
 ```
